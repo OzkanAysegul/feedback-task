@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Decision Making Experiment</title>
+    <!-- <script type="text/javascript" src="lib/vendors/jspsych-6.1.0/jspsych.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/vendors/jspsych-6.1.0/css/jspsych.css"/> -->
+
+    <script src="jspsych-6.1.0/jspsych.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
+    <script src="jspsych-fullscreen.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-call-function.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+
+    <script src="jspsych-6.1.0/plugins/jspsych-survey-multi-choice.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-survey-html-form.js"></script>
+    <!-- <script src="jspsych-6.1.0/plugins/jspsych-image-slider-response.js"></script> -->
+    <script src="jspsych-6.1.0/plugins/jspsych-image-slider-response-2.js"></script>
+
+
+    <script type="text/javascript" src="main_page_support.js"></script>
+    <script type="text/javascript" src="variable_index.js"></script>
+
+    <script type="text/javascript" src="index_survey.js"></script>
+
+    <script type="text/javascript" src="memory_config.js"></script>
+
+
+    <!-- <script src="lib/jsbase-6.3.1/jspsych.js"></script>
+    <link href="lib/css/jspsych.css" rel="stylesheet" type="text/css">
+    </link>
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    </link>
+    <link href="css/lmdlab-style.css" rel="stylesheet" type="text/css">
+    </link>
+    <link href="css/lmdlab-style-likert.css" rel="stylesheet" type="text/css">
+    </link>
+    <script src="lib/jspsych-6.3.1/jspsych-fullscreen.js"></script>
+    <script src="lib/jspsych-6.3.1/jspsych-html-keyboard-response.js"></script>
+    <script src="lib/jspsych-6.3.1/jspsych-html-button-response.js"></script>
+    <script src="lib/jspsych-6.3.1/jspsych-survey-multi-choice.js"></script>
+    <script src="js/lmdlab_plugins/lmdlab-preload.js"></script>
+    <script src="js/lmdlab_plugins/lmdlab-fullscreen.js"></script>
+    <script src="js/lmdlab_plugins/lmdlab-survey-text.js"></script>
+    <script src="js/lmdlab_plugins/lmdlab-survey-likert.js"></script>
+    <script src="js/lmdlab_plugins/lmdlab-evan-quiz.js"></script>
+    <script type="text/javascript" src="lib/d3.min.js"></script>
+    <script type="text/javascript" src="survey_save.js"></script> -->
+
+
+
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+
+    <script type="text/javascript" src="lmdlab-html-vas-response.js"></script>
+
+    <link href="jspsych-6.0.5/css/jspsych.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css">
+    </link>
+
+    <!-- <script type="text/javascript" src="lib/vendors/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="lib/jspsych-pavlovia-3.2.5.js"></script>  -->
+
+    <!-- <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"> -->
+</head>
+
+<style type="text/css">
+    #myLabelBox {
+        height: 45px;
+        line-height: 45px;
+        width: auto;
+        background: #F5F5F5;
+        text-align: center;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #1F1C1C;
+        font-size: 38;
+        margin: auto;
+    }
+
+    #jspsych-progressbar-container {
+        color: rgb(4, 171, 248);
+        border-bottom: 1px solid #dedede;
+        background-color: #f9f9f9;
+        margin-bottom: 1em;
+        text-align: center;
+        padding: 8px 0px;
+        width: 100%;
+        line-height: 1em;
+    }
+
+    #jspsych-progressbar-inner {
+        background-color: rgb(2, 149, 247);
+        width: 0%;
+        height: 100%;
+    }
+
+
+    @media screen and (min-width: 900px) {
+        .myTxtBox {
+            width: 900px;
+            text-align: left;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .myTxtBox {
+            width: auto;
+            text-align: left;
+        }
+    }
+</style>
+
+<style>
+    .custom-stimulus-class {
+        width: 10px;
+        /* Adjust the width as needed */
+        height: 200px;
+        /* Adjust the height as needed */
+        /* Add any other desired CSS rules */
+    }
+</style>
+
+<body>
+    <script type='text/javascript'>
+        // <script>
+        var rating_section;
+        const rat1_bool = true;
+        var pav = true;
+
+        /* create timeline */
+        var timeline = [];
+
+        // timeline.push(welcome);
+        // timeline.push(welcome, information_sheet, consent_form, demogr, general_intro2);
+        // timeline.push(trial_demo, trial_example_1, trial_example_2, trial_example_3, trial_example_4, trial_example_5,
+        //     trial_example_6, trial_example_7, trial_example_8)
+
+        /* survey added here*/
+
+
+        // TO DO LIST
+        // like main page support, put these variable in another js file... +++
+        // change timeline part according to survey part +++
+        // put surveys in the end that will figure out your timeline issue +++
+        // saving will be done with pavlovia check pavlovia how to save surveys whether you need js.init or not. +++
+        // screen size adjusting ?
+        // when add surveys js, the code is not working due to timeline disruption! ?
+
+
+
+        // subjectID = '0001'
+
+        // timeline.push(survey_start, STICSA_comb, MASQ_comb, SDS_comb, STAI_comb, AES_comb, survey_end)
+
+        if (rat1_bool == true) {
+            timeline.push({
+                type: 'fullscreen',
+                message: "<div style='margin:auto;width: 700px; font-size: 150%'>" +
+                    'Before we start, we need to make sure you see the stimuli in full size.<br><br><br> In order to do that, please enter into full-screen mode by pressing the button<br><br><br>',
+                fullscreen_mode: true,
+                button_label: 'Full screen'
+            });
+
+            // timeline.push(welcome);
+            // timeline.push(welcome, information_sheet, consent_form, demogr, general_intro2);
+            // timeline.push(trial_demo), 
+            // timeline.push(trial_example_1)
+            // timeline.push(trial_example_2)
+            // timeline.push(trial_example_3)
+            // timeline.push(trial_example_4)
+            // timeline.push(trial_example_5)
+            // timeline.push(trial_example_6)
+            // timeline.push(trial_example_7);
+            // timeline.push(trial_example_8);
+
+
+            jsPsych.init({
+                timeline: timeline,
+
+                on_finish: function () {
+
+                    nextSection();
+                }
+            });
+
+            function nextSection(pics_pairedT) {
+
+                var timeline = [];
+
+                for (i = 0; i < 160; i++) {
+
+                    var pics_pairedT = getBaskets();
+
+                    var basket_images = [{
+                        stimulus: [pics_pairedT[0].image_1, pics_pairedT[1].image_1,
+                            pics_pairedT[2].image_1
+                        ]
+                    }];
+                    var factors = {
+                        pattern: [pics_pairedT[0].image_1],
+                        image1: [pics_pairedT[1].image_1],
+                        image2: [pics_pairedT[2].image_1],
+                        corrAns: pics_pairedT[3],
+                        pattern_condition: [pics_pairedT[4]],
+                        feedback_duration: [pics_pairedT[5]]
+                    };
+
+                    var trial = {
+                        type: 'html-keyboard-response',
+                        stimulus: '<div style="display: flex; flex-direction: column; align-items: center; margin-top: -40px;">' +
+                            '<img src="' + factors.pattern +
+                            '" style="width: 234px; height: 230px; margin-top: -50px;">' +
+                            '<div style="display: flex; justify-content: space-between; margin-top: 83px;">' +
+                            '<img src="' + factors.image1 +
+                            '" style="width: 408px; height: 417px; margin-right:200px;">' +
+                            '<img src="' + factors.image2 + '" style="width: 408px; height: 417px;">' + '</div>' +
+                            '</div>',
+
+                        choices: ['d', 'l'],
+                        trial_duration: 3000,
+                        data: {
+                            pattern_stimuli: factors.pattern,
+                            choice_stimuli_1: factors.image1,
+                            choice_stimuli_2: factors.image2,
+                            correct_answer: factors.corrAns,
+                            pattern_conditions: factors.pattern_condition,
+                            feedback_duration_times: factors.feedback_duration,
+                            test_part: 'trial'
+                        },
+                        on_finish: function (data) {
+                            var response = parseInt(data.key_press);
+                            data.response = response;
+                        }
+
+                    };
+
+                    var display_response = {
+                        type: 'html-keyboard-response',
+                        stimulus: function () {
+                            var last_trial = jsPsych.data.getLastTrialData().values()[0];
+                            var response = last_trial.response;
+                            if (response == '68') {
+                                return '<div style="display: flex; flex-direction: column; align-items: center; margin-top: -40px;">' +
+                                    '<img src="' + last_trial.pattern_stimuli +
+                                    '" style="width: 234px; height: 230px; margin-top: -50px;">' +
+                                    '<div style="display: flex; justify-content: space-between; margin-top: 83px;">' +
+                                    '<img src="' + last_trial.choice_stimuli_1 +
+                                    '" style="width: 408px; height: 417px; margin-left:-508px;">' +
+                                    '</div>' + '</div>';
+                            } else if (response == '76') {
+                                return '<div style="display: flex; flex-direction: column; align-items: center;margin-top: -40px;">' +
+                                    '<img src="' + last_trial.pattern_stimuli +
+                                    '" style="width: 234px; height: 230px; margin-top: -50px;">' +
+                                    '<div style="display: flex; justify-content: space-between; margin-top: 83px;">' +
+                                    '<img src="' + last_trial.choice_stimuli_2 +
+                                    '" style="width: 408px; height: 417px; margin-left:608px;">' +
+                                    '</div>' + '</div>';
+                            } else(response == 'NaN')
+                            return "<p><font color='red' size = 16> Missed Trial <br> <br> Please respond faster</p></font>";
+                        },
+                        choices: jsPsych.NO_KEYS,
+                        trial_duration: 1000,
+                        data: {
+                            test_part: 'display_response',
+                            displayed_choice: function () {
+                                var last_trial = jsPsych.data.getLastTrialData().values()[0];
+                                if (last_trial.response == '68') {
+                                    return "pattern stimuli: " + last_trial.pattern_stimuli + ", " +
+                                        "chosen stimuli: " + last_trial.choice_stimuli_1;
+                                } else if (last_trial.response == '76') {
+                                    return "pattern stimuli: " + last_trial.pattern_stimuli + ", " +
+                                        "chosen stimuli: " + last_trial.choice_stimuli_2;
+                                } else(last_trial.response == 'NaN')
+                                return 'Missed trial';
+                            }
+                        }
+                    };
+
+                    var feedback_window = {
+                        type: 'html-keyboard-response',
+                        stimulus: '',
+                        choices: jsPsych.NO_KEYS,
+                        trial_duration: function () {
+                            var last_trial_response = jsPsych.data.get().last(2).values()[0];
+                            if (last_trial_response.rt == null) {
+                                return 0;
+                            } else {
+                                return last_trial_response.feedback_duration_times;
+                            }
+                        },
+                        data: {
+                            test_part: 'feedback_duration_window',
+                            feedback_durations: function () {
+                                var last_trial_response = jsPsych.data.get().last(2).values()[0];
+                                if (last_trial_response.rt !== null) {
+                                    return last_trial_response.feedback_duration_times;
+                                } else(last_trial_response.rt == null)
+                                return 0;
+                            }
+                        }
+                    };
+
+                    var correctCounter = 0;
+                    var feedback_image_window = {
+                        type: 'html-keyboard-response',
+                        stimulus: function () {
+
+                            var data_window = jsPsych.data.get().last(3).values()[0];
+                            var data_window_response = data_window.response;
+
+                            if (isNaN(data_window_response)) {
+                                jsPsych.data.get().last(3).values()[0].counter = correctCounter
+                                return ''; // Return an empty stimulus to skip displaying anything
+                            } else if (data_window_response == jsPsych.data.get().last(3).values()[0]
+                                .correct_answer[
+                                    0]) {
+                                correctCounter = correctCounter + 10;
+                                jsPsych.data.get().last(3).values()[0].counter = correctCounter
+                                return "<div style='margin:auto;width: auto; font-size: 100%'>" +
+                                    "<font color= 'green' size='40'>CORRECT</font><br><br><br><br>" +
+                                    "<font color= 'green' size='40'>10 points</font><br><br>" + '</div>';
+                            } else if (data_window_response != jsPsych.data.get().last(3).values()[0]
+                                .correct_answer[0]) {
+                                jsPsych.data.get().last(3).values()[0].counter = correctCounter
+                                return "<div style='margin:auto;width: auto; font-size: 100%'>" +
+                                    "<font color= 'red' size='40'>INCORRECT</font><br><br><br><br>" +
+                                    "<font color= 'red' size='40'>0 points</font><br><br>" + '</div>';
+                            }
+                        },
+                        choices: jsPsych.NO_KEYS,
+                        trial_duration: function () {
+                            var data_window = jsPsych.data.get().last(3).values()[0];
+                            var data_window_response = data_window.response;
+                            if (isNaN(data_window_response)) {
+                                return 0; // Skip the trial duration if response is NaN
+                            } else {
+                                return 1500;
+                            }
+                        },
+                        data: function () {
+                            var data_window = jsPsych.data.get().last(3).values()[0];
+                            var data_window_response = data_window.response;
+                            var data = {
+                                test_part: 'feedback_image_window'
+                            };
+                            return data;
+                        }
+                    };
+
+                    if (!i == 0 && i % 40 == 0) {
+                        var accuracy_performance = {
+                            type: "html-button-response",
+                            stimulus: function () {
+                                var correct_count = jsPsych.data.get().last(5).values()[0].counter;
+                                var data_performance = correct_count;
+                                return '<div style="font-size:40px;">Break<br><br><br><br>' +
+                                "<p>You have " + data_performance + " points. " + "<br><br><br><br>" +
+                                "When you are ready to continue" + "<br><br><br>" +
+                                "Please click the button.</p>" + "<br><br>";
+                            },
+                            choices: ["<div font-size: 120%'>Click to Continue</div>"],
+                        }
+                        var accuracy_performance_procedure = {
+                            timeline: [accuracy_performance],
+                        }
+                        timeline.push(accuracy_performance_procedure);
+
+                    };
+
+                    var ITI_duration_time = 1500 + Math.floor(Math.random() * 501);
+                    var ITI = {
+                        type: 'html-keyboard-response',
+                        stimulus: '',
+                        choices: jsPsych.NO_KEYS,
+                        trial_duration: ITI_duration_time,
+                        data: {
+                            test_part: 'ITI',
+                            ITI_duration: ITI_duration_time
+                        },
+                    };
+
+                    if ( !i == 0 && i % 4 == 0) {
+
+                        var mood_trial_baseline = {
+                            type: 'lmdlab-html-vas-response',
+                            data: {
+                                test_part: "baseline_mood"
+                            },
+                            stimulus: 'How happy are you right now?',
+                            scale_colour: 'gray',
+                            labels: ['Very unhappy', 'Very happy'],
+                            on_finish: function () {
+                                // saveTaskData();
+                            }
+                        };
+
+                        var mood_trial_procedure = {
+                            timeline: [mood_trial_baseline],
+                        }
+                        timeline.push(mood_trial_procedure);
+                    };
+
+                    var test_procedure = {
+                        timeline: [trial, display_response, feedback_window,
+                            feedback_image_window, ITI
+                        ],
+                        timeline_variables: factors,
+                    }
+                    timeline.push(test_procedure);
+                }
+                jsPsych.init({
+                    timeline: timeline,
+                    on_trial_finish: function (data) {
+                        // jsPsych.data.displayData('csv');
+                    },
+                    on_finish: function (data) {
+                        jsPsych.data.get().localSave('csv', 'data_feedback_decision.csv')
+                        subsequent_memory_test();
+                        // debrief_final();
+                    }
+                });
+            }
+
+            function subsequent_memory_test() {
+                var memory_final_block = {
+                    type: 'image-slider-response',
+                    prompt: "<div style='margin:auto;width: 900px; font-size: 150%'>" + 
+                        "<p>Please provide estimations of time delays for this target stimuli</p>" + '<br><br>',
+                    stimulus: jsPsych.timelineVariable('stimulus'),
+                    labels: ['1', '2', '3', '4', '5', '6', '7'],
+                    choices: ['1', '2', '3', '4', '5', '6', '7'],
+                    stimulus_width: 400,
+                    slider_width: 400,
+                    maintain_aspect_ratio: true,
+                    post_trial_gap: 0,
+                };
+                var memory_fixation = {
+                    type: 'html-keyboard-response',
+                    stimulus: '<div style="font-size:60px;"></div>',
+                    choices: jsPsych.NO_KEYS,
+                    trial_duration: function () {
+                        return 2500;
+                    },
+                    data: {
+                        test_part: 'memory_fixation'
+                    }
+                }
+                var memory_procedure = {
+                    timeline: [memory_final_block, memory_fixation],
+                    timeline_variables: memory_stimuli,
+                    randomize_order: true
+                }
+                timeline = [];
+                timeline.push(memory_procedure);
+                // var pavlovia_finish = {
+                //     type: "pavlovia",
+                //     command: "finish"
+                // };
+                // timeline.push(pavlovia_finish);
+                jsPsych.init({
+                    timeline: timeline,
+                });
+            };
+
+
+            // function debrief_final() {
+            //     var debrief_final_block = {
+            //         type: 'html-keyboard-response',
+            //         stimulus: function () {
+            //             var subject_data = 1;
+            //             return "<div style='margin:auto;width: 700px; font-size: 150%'>" +
+            //                 "<br><br> Thank you for your participating!<br><br>" +
+            //                 "Press any key to complete the experiment. <br><br></p>";
+            //         },
+            //         trial_duration: 5000
+
+            //     }
+            //     timeline = [];
+
+            //     timeline.push(debrief_final_block);
+            //     // var pavlovia_finish = {
+            //     //     type: "pavlovia",
+            //     //     command: "finish"
+            //     // };
+            //     // timeline.push(pavlovia_finish);
+            //     jsPsych.init({
+            //         timeline: timeline,
+            //     });
+            // };
+
+        }
+    </script>
+
+</html>

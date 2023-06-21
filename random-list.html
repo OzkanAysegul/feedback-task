@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Decision Making Experiment</title>
+    <script src="jspsych-6.1.0/jspsych.js"></script>
+</head>
+
+<body>
+    <script type='text/javascript'>
+        var moodList_1 = [];
+        var currentMood_1 = 4;
+
+        while (currentMood_1 <= 160) {
+            moodList_1.push(currentMood_1);
+            currentMood_1 += 4;
+        }
+
+        console.log(moodList_1);
+
+        var selectedMoodList_1 = jsPsych.randomization.shuffle(moodList_1).slice(0, 20);
+
+        console.log(selectedMoodList_1);
+
+        selectedMoodList_1.sort(function (a, b) {
+            return a - b;
+        });
+
+        console.log("final-list-1", selectedMoodList_1);
+
+        var moodList_2 = [];
+        var currentMood_2 = 5;
+
+        while (currentMood_2 <= 160) {
+            moodList_2.push(currentMood_2);
+            currentMood_2 += 5;
+        }
+
+        console.log(moodList_2);
+
+        var selectedMoodList_2 = jsPsych.randomization.shuffle(moodList_2).slice(0, 20);
+
+        console.log(selectedMoodList_2);
+
+        selectedMoodList_2.sort(function (a, b) {
+            return a - b;
+        });
+
+        console.log("final-list-2", selectedMoodList_2);
+
+        var combinedList = selectedMoodList_1.concat(selectedMoodList_2);
+
+        combinedList.sort(function (a, b) {
+            return a - b;
+        });
+
+        console.log(combinedList);
+
+
+
+        // if i is inside selectedMoodList_1, sho
+    </script>
+
+</html>
+
+
+// Define the mood rating task configuration
+var mood_trial_baseline = {
+  type: 'lmdlab-html-vas-response',
+  data: {
+    test_part: 'baseline_mood'
+  },
+  stimulus: 'How happy are you right now?',
+  scale_colour: 'gray',
+  labels: ['Very unhappy', 'Very happy'],
+  on_finish: function() {
+    // saveTaskData();
+  }
+};
+
+// Determine the interval for showing mood ratings
+var interval = 4; // Default interval for showing mood ratings
+
+// Iterate through the trials
+for (var i = 0; i < 160; i++) {
+  // Check if the current trial is at the desired interval
+  if ((i % interval === 0) || (i % interval === (interval - 1))) {
+    var mood_trial_procedure = {
+      timeline: [mood_trial_baseline]
+    };
+    timeline.push(mood_trial_procedure);
+  }
+
+  // Adjust the interval as needed
+  if (i === 79) {
+    interval = 5; // Change the interval to 5 after 80 trials
+  }
+}

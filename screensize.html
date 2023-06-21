@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adjust Image Sizes Example</title>
+    <style>
+        /* CSS styles for the pattern image */
+        #pattern-image {
+            width: 100%; /* Set the initial width of the image */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+    <script>
+        // Function to adjust image sizes based on screen width
+        function adjustImageSizes() {
+            var screenWidth = window.innerWidth;
+            console.log(screenWidth);
+
+            // Define image width and height based on screen width
+            var patternWidth, patternHeight, imageWidth, imageHeight;
+            if (screenWidth >= 1200) {
+                patternWidth = 234;
+                patternHeight = 230;
+                imageWidth = 408;
+                imageHeight = 417;
+            } else if (screenWidth >= 768) {
+                patternWidth = 150; // Adjust the values as needed for smaller screens
+                patternHeight = 147; // Adjust the values as needed for smaller screens
+                imageWidth = 300; // Adjust the values as needed for smaller screens
+                imageHeight = 307; // Adjust the values as needed for smaller screens
+            } else {
+                patternWidth = 100; // Adjust the values as needed for smaller screens
+                patternHeight = 98; // Adjust the values as needed for smaller screens
+                imageWidth = 200; // Adjust the values as needed for smaller screens
+                imageHeight = 205; // Adjust the values as needed for smaller screens
+            }
+
+            // Get the element and update image size
+            var patternImage = document.querySelector('#pattern-image');
+
+            console.log(patternImage);
+            // Update image size
+            patternImage.style.width = patternWidth + 'px';
+            patternImage.style.height = patternHeight + 'px';
+        }
+
+        // Call the adjustImageSizes function when the window is resized
+        window.addEventListener('resize', adjustImageSizes);
+    </script>
+</head>
+<body>
+    <img id="pattern-image" src="path/to/your/image.jpg" alt="Pattern Image">
+</body>
+</html>
+
+
+var trial = {
+    type: 'html-keyboard-response',
+    stimulus: '<div style="display: flex; flex-direction: column; align-items: center; margin-top: -40px;">' +
+      '<img src="' + factors.pattern + '" style="width: 234px; height: 230px; margin-top: -50px;">' +
+      '<div style="display: flex; justify-content: space-between; margin-top: 83px;">' +
+      '<img src="' + factors.image1 +
+      '" style="width: 408px; height: 417px; margin-right:200px;">' +
+      '<img src="' + factors.image2 + '" style="width: 408px; height: 417px;">' +
+      '</div>' +
+      '</div>'
+  };
+  
+  // Dynamically adjust image sizes on screen resize
+  function adjustImageSizes() {
+    var screenWidth = window.innerWidth;
+  
+    // Define image width and height based on screen width
+    var patternWidth, patternHeight, imageWidth, imageHeight;
+    if (screenWidth >= 1200) {
+      patternWidth = 234;
+      patternHeight = 230;
+      imageWidth = 408;
+      imageHeight = 417;
+    } else if (screenWidth >= 768) {
+      patternWidth = 150;  // Adjust the values as needed for smaller screens
+      patternHeight = 147; // Adjust the values as needed for smaller screens
+      imageWidth = 300;    // Adjust the values as needed for smaller screens
+      imageHeight = 307;   // Adjust the values as needed for smaller screens
+    } else {
+      patternWidth = 100;  // Adjust the values as needed for smaller screens
+      patternHeight = 98;  // Adjust the values as needed for smaller screens
+      imageWidth = 200;    // Adjust the values as needed for smaller screens
+      imageHeight = 205;   // Adjust the values as needed for smaller screens
+    }
+  
+    // Update the image sizes
+    var patternImage = document.querySelector('#pattern-image');
+    patternImage.style.width = patternWidth + 'px';
+    patternImage.style.height = patternHeight + 'px';
+  
+    var image1 = document.querySelector('#image1');
+    image1.style.width = imageWidth + 'px';
+    image1.style.height = imageHeight + 'px';
+  
+    var image2 = document.querySelector('#image2');
+    image2.style.width = imageWidth + 'px';
+    image2.style.height = imageHeight + 'px';
+  }
+  
+  // Attach the resize event listener
+  window.addEventListener('resize', adjustImageSizes);
+  
+  // Initial adjustment on page load
+  adjustImageSizes();
+  
